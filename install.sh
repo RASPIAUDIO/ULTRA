@@ -1,6 +1,6 @@
 #
-cp rc.local /etc
-cp ultra /etc
-chmod 777 /etc/ultra
+sudo cp rc.local /etc
+sudo cp ultra /etc
+sudo chmod 777 /etc/ultra
 bash script
 
