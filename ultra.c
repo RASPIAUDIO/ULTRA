@@ -77,11 +77,11 @@ void main()
 	st += write_i2c(3, 0x16F);
 	usleep(500);	
 	//SPK volume
-	st += write_i2c(40, 0x170);
+	st += write_i2c(40, 0x17F);
 	usleep(500);
-	st += write_i2c(41, 0x170);
+	st += write_i2c(41, 0x178);
 	usleep(500);
-        st += write_i2c(51, 0x0CD);
+        st += write_i2c(51, 0x08D);
 	// input volume
 	st += write_i2c(0, 0x13F);
 	usleep(10000);	
