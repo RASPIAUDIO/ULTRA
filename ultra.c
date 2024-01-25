@@ -1,4 +1,4 @@
- #include <unistd.h>
+#include <unistd.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <linux/i2c-dev.h>
@@ -20,6 +20,7 @@ int write_i2c(uint8_t r, uint16_t v)
 	uint8_t b[2];
 	b[0] = ((v&0x0100)>>8) | (r<<1);
 	b[1] = (uint8_t)(v&0xff);
+
 	if(write(file_i2c, b, 2) != 2) 
 	{
 	    printf("i2c error...\n");
@@ -33,6 +34,7 @@ void main()
 	int st;
 	st = init_i2c();
 	if(st != 0) printf("Error # %d\n",st); 
+        else printf("init i2c OK\n");
 	//reset
 	st += write_i2c(15, 0x00);
 	usleep(10000);

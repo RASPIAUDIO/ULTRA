@@ -160,7 +160,7 @@ os_check() {
     IS_EXPERIMENTAL=false
 
     if [ -f /etc/os-release ]; then
-        if cat /etc/os-release | grep "Raspbian" > /dev/null; then
+        if cat /etc/os-release | grep "debian" > /dev/null; then
             IS_RASPBIAN=true && IS_SUPPORTED=true
         fi
         if command -v apt-get > /dev/null; then
@@ -241,6 +241,8 @@ raspbian_check() {
             IS_SUPPORTED=true && IS_EXPERIMENTAL=false
         elif cat /etc/os-release | grep "bullseye" > /dev/null; then
             IS_SUPPORTED=true && IS_EXPERIMENTAL=false
+        elif cat /etc/os-release | grep "bookworm" > /dev/null; then
+            IS_SUPPORTED=true && IS_EXPERIMENTAL=false            
         else
             IS_SUPPORTED=false && IS_EXPERIMENTAL=false
         fi
@@ -385,7 +387,7 @@ if confirm "Do you wish to continue?"; then
     fi
 
     echo "Enabling i2c"
-    sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/" $CONFIG
+    sudo sed -i "s/#dtparam=i2c_arm=on/dtparam=i2c_arm=on\ndtparam=i2c1=on/" $CONFIG
 
 
     echo "Configuring sound output"
