@@ -39,7 +39,7 @@ void main()
 	st += write_i2c(15, 0x00);
 	usleep(10000);
 	//Power
-	st += write_i2c(25, 0x1FC);
+	st += write_i2c(25, 0xFC);
 	usleep(500);	
 	st += write_i2c(26, 0x1F9);
 	usleep(500);	
@@ -61,19 +61,12 @@ void main()
 	usleep(10000);	
 	st += write_i2c(7, 0x002);
 	usleep(10000);	
-	//ALC and Noise control
-	//ALC off
-//	st += write_i2c(17, 0x00);
-	//ALC on
-	st += write_i2c(17, 0x1FB);	
-	
-	//ADC volume
-	st += write_i2c(21, 0x1C3);	
-	st += write_i2c(22, 0x1C3);
-	//Noise gate			
+	//ALC and Noise control	
 	st += write_i2c(20, 0x0F9);
 	usleep(10000);
-    st += write_i2c(17, 0x1FB);
+	// ALC off
+    st += write_i2c(17, 0x00);
+//    st += write_i2c(17, 0x1FB);
     usleep(10000);  
     st += write_i2c(18, 0x000);
     usleep(10000);  
@@ -93,17 +86,27 @@ void main()
 	usleep(500);
         st += write_i2c(51, 0x08D);
 	// input volume
-	st += write_i2c(0, 0x13F);
+	st += write_i2c(0, 0x100);
 	usleep(10000);	
-	st += write_i2c(1, 0x13F);
+	st += write_i2c(1, 0x100);
 	usleep(10000);
-	// INPUTS
-	st += write_i2c(32, 0x138);
+	// PGA INPUTS (none)
+	st += write_i2c(32, 0x00);
 	usleep(10000);	
-	st += write_i2c(33, 0x138);
+	st += write_i2c(33, 0x00);
 	usleep(10000);	
-	//
-	
+    // PGA Boost control
+	st += write_i2c(43, 0x0E);
+	usleep(10000);  
+	st += write_i2c(44, 0x0E);
+	usleep(10000);  
+    // ADC Volume
+	st += write_i2c(21, 0x1FF);
+	usleep(10000);  
+	st += write_i2c(22, 0x1FF);
+	usleep(10000);  
+	// Noise gate
+	st += write_i2c(20, 0xF9);
 	// OUTPUTS
 	st += write_i2c(49, 0x0F7);
 	usleep(10000);	
