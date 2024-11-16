@@ -1,5 +1,5 @@
 # ULTRA
-Easy installation...  (onboard microphones + speakers + headphones)
+Easy installation. (onboard microphones + speakers + headphones)
 
 1- >> cd ULTRA
 
