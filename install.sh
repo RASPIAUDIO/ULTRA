@@ -20,15 +20,15 @@ sudo cp ultra /etc
 # Change permissions of the ultra file to allow all users read, write, and execute access
 sudo chmod 777 /etc/ultra
 
-# Add necessary configurations to /boot/config.txt
-if ! grep -q "dtoverlay=i2s-mmap" /boot/config.txt; then
-  echo "Adding dtoverlay=i2s-mmap to /boot/config.txt"
-  sudo bash -c 'echo "dtoverlay=i2s-mmap" >> /boot/config.txt'
+# Add necessary configurations to /boot/firmware/config.txt
+if ! grep -q "dtoverlay=i2s-mmap" /boot/firmware/config.txt; then
+  echo "Adding dtoverlay=i2s-mmap to /boot/firmware/config.txt"
+  sudo bash -c 'echo "dtoverlay=i2s-mmap" >> /boot/firmware/config.txt'
 fi
 
-if ! grep -q "dtparam=i2s=on" /boot/config.txt; then
-  echo "Adding dtparam=i2s=on to /boot/config.txt"
-  sudo bash -c 'echo "dtparam=i2s=on" >> /boot/config.txt'
+if ! grep -q "dtparam=i2s=on" /boot/firmware/config.txt; then
+  echo "Adding dtparam=i2s=on to /boot/firmware/config.txt"
+  sudo bash -c 'echo "dtparam=i2s=on" >> /boot/firmware/config.txt'
 fi
 
 # Enable I2C in Raspberry Pi configuration
