@@ -9,7 +9,7 @@ if [ ! -f /etc/rc.local ]; then
   sudo chmod +x /etc/rc.local
 else
   # Add the execution of ultra to rc.local if not already present
-  if ! grep -q "/etc/ultra" /etc/rc.local; then
+  if ! grep -q "^/etc/ultra$" /etc/rc.local; then
     echo "Adding execution of ultra to rc.local."
     sudo sed -i '/^exit 0$/i /etc/ultra' /etc/rc.local
   fi
