@@ -10,6 +10,7 @@ if [ ! -f /etc/rc.local ]; then
 else
   # Add the execution of ultra to rc.local if not already present
   if ! grep -q "/etc/ultra" /etc/rc.local; then
+    echo "Adding execution of ultra to rc.local."
     sudo sed -i '/^exit 0$/i /etc/ultra' /etc/rc.local
   fi
 fi
@@ -26,9 +27,16 @@ if ! grep -q "dtoverlay=i2s-mmap" /boot/firmware/config.txt; then
   sudo bash -c 'echo "dtoverlay=i2s-mmap" >> /boot/firmware/config.txt'
 fi
 
-if ! grep -q "dtparam=i2s=on" /boot/firmware/config.txt; then
-  echo "Adding dtparam=i2s=on to /boot/firmware/config.txt"
-  sudo bash -c 'echo "dtparam=i2s=on" >> /boot/firmware/config.txt'
+if ! grep -q "dtoverlay=googlevoicehat-soundcard" /boot/firmware/config.txt; then
+  echo "Replacing dtparam=i2s=on with dtoverlay=googlevoicehat-soundcard in /boot/firmware/config.txt"
+  sudo sed -i '/^dtparam=i2s=on$/d' /boot/firmware/config.txt
+  sudo bash -c 'echo "dtoverlay=googlevoicehat-soundcard" >> /boot/firmware/config.txt'
+fi
+
+# Disable built-in audio if enabled in config.txt
+if grep -q "^dtparam=audio=on" /boot/firmware/config.txt; then
+  echo "Disabling built-in audio in /boot/firmware/config.txt"
+  sudo sed -i 's/^dtparam=audio=on/#dtparam=audio=on/' /boot/firmware/config.txt
 fi
 
 # Enable I2C in Raspberry Pi configuration
