@@ -16,7 +16,7 @@ else
 fi
 
 # Copy the ultra file to /etc
-make ultra.c
+gcc -o ultra ultra.c
 sudo cp ultra /etc
 
 # Change permissions of the ultra file to allow all users read, write, and execute access
