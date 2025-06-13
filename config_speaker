@@ -1,0 +1,55 @@
+CARD_NAME='wm8960soundcard'
+set +x
+amixer -c "$CARD_NAME" sset 'Headphone Playback Volume' 80%
+amixer -c "$CARD_NAME" sset "Headphone" 200
+amixer -c "$CARD_NAME" sset "Headphone Playback ZC" off
+amixer -c "$CARD_NAME" sset "Speaker" 150
+amixer -c "$CARD_NAME" sset "Speaker AC" 4
+amixer -c "$CARD_NAME" sset "Speaker DC" 4
+amixer -c "$CARD_NAME" sset "Speaker Playback ZC" off
+amixer -c "$CARD_NAME" -c "$CARD_NAME" sset "PCM Playback -6dB" off
+amixer -c "$CARD_NAME" sset "Mono Output Mixer Left" off
+amixer -c "$CARD_NAME" sset "Mono Output Mixer Right" off
+amixer -c "$CARD_NAME" sset "Playback" 240
+amixer -c "$CARD_NAME" sset "Capture" 0
+amixer -c "$CARD_NAME" sset "3D" 0
+amixer -c "$CARD_NAME" sset "3D Filter Lower Cut-Off" Low
+amixer -c "$CARD_NAME" sset "3D Filter Upper Cut-Off" off
+amixer -c "$CARD_NAME" sset "ADC Data Output Select" "Left Data = Left ADC; Right Data = Right ADC"
+amixer -c "$CARD_NAME" sset "ADC High Pass Filter" off
+amixer -c "$CARD_NAME" sset "ADC PCM" 190
+amixer -c "$CARD_NAME" sset "ADC Polarity" "No Inversion"
+amixer -c "$CARD_NAME" sset "ALC Attack" 0
+amixer -c "$CARD_NAME" sset "ALC Decay" 0
+amixer -c "$CARD_NAME" sset "ALC Function" "Off"
+amixer -c "$CARD_NAME" sset "ALC Hold Time" 0
+amixer -c "$CARD_NAME" sset "ALC Max Gain" 0
+amixer -c "$CARD_NAME" sset "ALC Min Gain" 0
+amixer -c "$CARD_NAME" sset "ALC Mode" "ALC"
+amixer -c "$CARD_NAME" sset "ALC Target" 0
+amixer -c "$CARD_NAME" sset "DAC Deemphasis" off
+amixer -c "$CARD_NAME" sset "DAC Mono Mix" "Stereo"
+amixer -c "$CARD_NAME" sset "DAC Polarity" "No Inversion"
+amixer -c "$CARD_NAME" sset "Left Boost Mixer LINPUT1" on
+amixer -c "$CARD_NAME" sset "Left Boost Mixer LINPUT2" off
+amixer -c "$CARD_NAME" sset "Left Boost Mixer LINPUT3" off
+amixer -c "$CARD_NAME" sset "Left Input Boost Mixer LINPUT1" 100
+amixer -c "$CARD_NAME" sset "Left Input Boost Mixer LINPUT2" 0
+amixer -c "$CARD_NAME" sset "Left Input Boost Mixer LINPUT3" 0
+amixer -c "$CARD_NAME" sset "Left Input Mixer Boost" on
+amixer -c "$CARD_NAME" sset "Left Output Mixer Boost Bypass" 0
+amixer -c "$CARD_NAME" sset "Left Output Mixer LINPUT3" 0
+amixer -c "$CARD_NAME" sset "Left Output Mixer PCM" on
+amixer -c "$CARD_NAME" sset "Noise Gate" off
+amixer -c "$CARD_NAME" sset "Noise Gate Threshold" 0
+amixer -c "$CARD_NAME" sset "Right Boost Mixer RINPUT1" on
+amixer -c "$CARD_NAME" sset "Right Boost Mixer RINPUT2" off
+amixer -c "$CARD_NAME" sset "Right Boost Mixer RINPUT3" off
+amixer -c "$CARD_NAME" sset "Right Input Boost Mixer RINPUT1" 100
+amixer -c "$CARD_NAME" sset "Right Input Boost Mixer RINPUT2" 0
+amixer -c "$CARD_NAME" sset "Right Input Boost Mixer RINPUT3" 0
+amixer -c "$CARD_NAME" sset "Right Input Mixer Boost" on
+amixer -c "$CARD_NAME" sset "Right Output Mixer Boost Bypass" 0
+amixer -c "$CARD_NAME" sset "Right Output Mixer PCM" off
+amixer -c "$CARD_NAME" sset "Right Output Mixer RINPUT3" 0
+amixer -c "$CARD_NAME" sset "Capture" 15

@@ -1,0 +1,24 @@
+CARD_NAME='wm8960soundcard'
+
+set +x
+
+
+
+#test MIC external R
+amixer -c "$CARD_NAME" sset "Left Boost Mixer LINPUT1" off
+amixer -c "$CARD_NAME" sset "Left Boost Mixer LINPUT2" off
+amixer -c "$CARD_NAME" sset "Left Boost Mixer LINPUT3" off
+amixer -c "$CARD_NAME" sset "Left Input Boost Mixer LINPUT1" 0
+amixer -c "$CARD_NAME" sset "Left Input Boost Mixer LINPUT2" 0
+amixer -c "$CARD_NAME" sset "Left Input Boost Mixer LINPUT3" 0
+amixer -c "$CARD_NAME" sset "Left Output Mixer PCM" off
+amixer -c "$CARD_NAME" sset "Left Input Mixer Boost" off
+
+amixer -c "$CARD_NAME" sset "Right Boost Mixer RINPUT1" off
+amixer -c "$CARD_NAME" sset "Right Boost Mixer RINPUT2" on
+amixer -c "$CARD_NAME" sset "Right Boost Mixer RINPUT3" off
+amixer -c "$CARD_NAME" sset "Right Input Boost Mixer RINPUT1" 0
+amixer -c "$CARD_NAME" sset "Right Input Boost Mixer RINPUT2" 250
+amixer -c "$CARD_NAME" sset "Right Input Boost Mixer RINPUT3" 0
+amixer -c "$CARD_NAME" sset "Right Output Mixer PCM" on
+amixer -c "$CARD_NAME" sset "Right Input Mixer Boost" on
