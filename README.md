@@ -1,3 +1,5 @@
+OBSOLETE
+
 # ULTRA
 Easy installation. (onboard microphones + speakers + headphones)
 
